@@ -1,14 +1,14 @@
-import { dirname, normalize } from "node:path"
 import { existsSync } from "node:fs"
 import { writeFile } from "node:fs/promises"
+import { fileURLToPath } from "node:url"
 
-const fileName = dirname(process.argv[1]) + normalize("/files/fresh.txt")
+const fileName = fileURLToPath(import.meta.url)
 
 // create.js - implement function that creates new file fresh.txt with content I am fresh and young inside of the files folder
 const create = async () => {
   if (existsSync(fileName)) {
     // if file already exists Error with message "FS operation failed" must be thrown
-    throw Error("FS operation failed")
+    throw new Error("FS operation failed")
   }
   writeFile(fileName, "I am fresh and young")
 }
