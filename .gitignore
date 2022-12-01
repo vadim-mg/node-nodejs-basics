@@ -1,2 +1,2 @@
-src/fs/files
+src/fs/files/*
 src/fs/files_copy/*
