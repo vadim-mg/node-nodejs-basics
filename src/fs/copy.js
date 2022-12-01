@@ -1,11 +1,11 @@
-import { dirname } from "node:path"
-import { fileURLToPath } from "node:url"
 import { cp } from "node:fs/promises"
+import { getFullPathName } from "../utils/getFullPathName.js"
+import { fsOperationField } from "../utils/constants.js"
 
-const fileName = fileURLToPath(import.meta.url)
-const dir = dirname(fileName)
-const sourceDirName = dir + "/files"
-const destDirName = dir + "/files_copy"
+const dir = getFullPathName(import.meta.url)
+
+const sourceDirName = dir
+const destDirName = dir + "_copy"
 
 /* 
 copy.js - implement function that copies folder "files" with all its content 
@@ -25,7 +25,7 @@ const copy = async () => {
     })
     .catch((err) => {
       err.reason = err.message
-      err.message = "FS operation failed"
+      err.message = fsOperationField
       throw err
     })
 }
