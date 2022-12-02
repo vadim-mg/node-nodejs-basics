@@ -1,4 +1,3 @@
-// import { existsSync } from "node:fs"
 import { readFile } from "node:fs/promises"
 
 import { getFullPathName } from "../utils/getFullPathName.js"
