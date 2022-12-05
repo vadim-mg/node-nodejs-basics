@@ -1,3 +1,9 @@
+/**
+//  rename.js - implement function that renames file "wrongFilename.txt" to "properFilename.md" 
+//    (if there's no file "wrongFilename.txt" or "properFilename.md" already exists 
+//    Error with message "FS operation failed" must be thrown)
+ */
+
 import fs from "node:fs/promises"
 import { existsSync } from "node:fs"
 
@@ -8,11 +14,6 @@ const dir = getFullPathName(import.meta.url)
 const sourcefileName = dir + "/wrongFilename.txt"
 const destFileName = dir + "/properFilename.md"
 
-/**
-//  rename.js - implement function that renames file "wrongFilename.txt" to "properFilename.md" 
-//    (if there's no file "wrongFilename.txt" or "properFilename.md" already exists 
-//    Error with message "FS operation failed" must be thrown)
- */
 const rename = async () => {
   if (existsSync(destFileName)) {
     const error = new Error(fsOperationField)

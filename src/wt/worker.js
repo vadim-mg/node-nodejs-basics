@@ -11,6 +11,9 @@ const nthFibonacci = (n) =>
 
 // This function sends result of nthFibonacci computations to main thread
 const sendResult = () => {
+  // if (Math.random() > 0.5) {
+  //   throw new Error("dfd")
+  // }
   parentPort.postMessage(nthFibonacci(workerData))
 }
 

@@ -1,14 +1,14 @@
+/* 
+- implement function that deletes file "fileToRemove.txt" 
+(if there's no file "fileToRemove.txt" Error with message "FS operation failed" must be thrown) 
+*/
+
 import { rm } from "node:fs/promises"
 
 import { getFullPathName } from "../utils/getFullPathName.js"
 import { fsOperationField } from "../utils/constants.js"
 
 const fileName = getFullPathName(import.meta.url, "/fileToRemove.txt")
-
-/* 
-- implement function that deletes file "fileToRemove.txt" 
-(if there's no file "fileToRemove.txt" Error with message "FS operation failed" must be thrown) 
-*/
 
 const remove = async () => {
   rm(fileName)
